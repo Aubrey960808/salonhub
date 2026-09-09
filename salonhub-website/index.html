@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>SalonHub — Book salons & house-call beauty pros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Salons &amp; mobile beauty pros, one booking away</div>
+    <h1>Book your next look at a salon, or have the pro come to you.</h1>
+    <p class="lede">Makeup artists, barbers, nail technicians and braiders for house calls — plus every salon on the block, all with live time slots.</p>
+
+    <form class="hero-search" id="hero-search-form">
+      <div class="field">
+        <label for="hero-type">I'm looking for</label>
+        <select id="hero-type">
+          <option value="housecall">A house call</option>
+          <option value="salon">A salon visit</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="hero-city">Location</label>
+        <select id="hero-city"><option value="">Any location</option></select>
+      </div>
+      <button class="btn btn-gold" type="submit">Search</button>
+    </form>
+  </div>
+</header>
+
+<div class="container">
+  <div class="category-strip">
+    <a class="category-card" href="browse.html?type=housecall&category=Makeup+Artist">
+      <div class="cat-label">Makeup Artist</div>
+      <div class="cat-sub">House calls</div>
+    </a>
+    <a class="category-card" href="browse.html?type=housecall&category=Barber">
+      <div class="cat-label">Barber</div>
+      <div class="cat-sub">House calls</div>
+    </a>
+    <a class="category-card" href="browse.html?type=housecall&category=Nail+Technician">
+      <div class="cat-label">Nail Technician</div>
+      <div class="cat-sub">House calls</div>
+    </a>
+    <a class="category-card" href="browse.html?type=housecall&category=Braider">
+      <div class="cat-label">Braider</div>
+      <div class="cat-sub">House calls</div>
+    </a>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Salons near you</h2>
+        <p>Full-service salons that list their own menu and slots.</p>
+      </div>
+      <a href="browse.html?type=salon" class="btn btn-outline">View all salons</a>
+    </div>
+    <div id="salon-preview" class="listing"></div>
+  </div>
+</section>
+
+<section style="background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Popular house-call pros</h2>
+        <p>Book a slot and they'll bring the chair, cape and clippers to you.</p>
+      </div>
+      <a href="browse.html?type=housecall" class="btn btn-outline">View all house calls</a>
+    </div>
+    <div id="housecall-preview" class="listing"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container center">
+    <h2>Run a salon, or freelance solo?</h2>
+    <p class="muted">List your services, set your own availability, and manage bookings from one dashboard.</p>
+    <a href="signup.html?role=provider" class="btn btn-gold">List your business</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+    <span>Built for house calls &amp; salon bookings</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script>
+  renderNav();
+
+  const citySelect = document.getElementById("hero-city");
+  allCities().forEach((c) => {
+    const opt = document.createElement("option");
+    opt.value = c; opt.textContent = c;
+    citySelect.appendChild(opt);
+  });
+
+  document.getElementById("hero-search-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const type = document.getElementById("hero-type").value;
+    const city = citySelect.value;
+    let url = `browse.html?type=${type}`;
+    if (city) url += `&city=${encodeURIComponent(city)}`;
+    window.location.href = url;
+  });
+
+  const providers = DB.getUsers().filter((u) => u.role === "provider");
+  renderListing("salon-preview", providers.filter((p) => p.providerType === "salon").slice(0, 4));
+  renderListing("housecall-preview", providers.filter((p) => p.providerType === "housecall").slice(0, 4));
+</script>
+</body>
+</html>

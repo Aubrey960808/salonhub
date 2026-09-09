@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>Provider — SalonHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<section id="provider-page" style="display:none;">
+  <div class="container">
+    <div class="provider-header">
+      <div>
+        <img class="cover" id="p-cover" src="" alt="" />
+      </div>
+      <div>
+        <div class="meta" style="margin-bottom:10px;" id="p-badges"></div>
+        <h1 id="p-name" style="font-size:2rem;"></h1>
+        <p id="p-bio" class="muted"></p>
+        <p class="small muted" id="p-location"></p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="provider-header">
+      <div>
+        <h2>Services</h2>
+        <div id="services-list"></div>
+
+        <h2 style="margin-top:36px;">Availability</h2>
+        <p class="muted small">Pick a service first, then choose an open slot.</p>
+        <div id="slots-list"></div>
+      </div>
+
+      <div>
+        <div class="booking-panel">
+          <h3>Your booking</h3>
+          <div id="booking-summary" class="small muted">Select a service and a time slot to continue.</div>
+          <div class="form-error" id="booking-error" style="margin-top:14px;"></div>
+          <div class="form-success" id="booking-success" style="display:none;"></div>
+          <button class="btn btn-block" id="confirm-booking-btn" style="margin-top:16px;" disabled>Request booking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="not-found" style="display:none;">
+  <div class="container center">
+    <h2>Provider not found</h2>
+    <p class="muted">This listing may have been removed.</p>
+    <a href="browse.html" class="btn">Back to browse</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/provider.js"></script>
+</body>
+</html>

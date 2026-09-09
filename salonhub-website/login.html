@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>Log in — SalonHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<section>
+  <div class="container-narrow">
+    <h1 class="center" style="font-size:2rem;">Welcome back</h1>
+    <p class="center muted">Log in to manage bookings or your availability.</p>
+
+    <div class="form-card">
+      <div class="form-success" id="reset-success" style="display:none;">Password updated — log in with your new password.</div>
+      <div class="form-error" id="form-error"></div>
+      <form id="login-form">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" type="email" required placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <div class="flex-between" style="margin-bottom:6px;">
+            <label for="password" style="margin:0;">Password</label>
+            <a href="forgot-password.html" class="small" style="color:var(--wine); font-weight:600;">Forgot password?</a>
+          </div>
+          <input id="password" type="password" required placeholder="Your password" />
+        </div>
+        <button class="btn btn-block" type="submit">Log in</button>
+      </form>
+      <p class="center small muted" style="margin-top:18px;">No account yet? <a href="signup.html" style="color:var(--wine); font-weight:600;">Sign up</a></p>
+
+      <hr class="divider" />
+      <p class="small muted center" style="margin-bottom:10px;">Demo accounts</p>
+      <div class="small muted" style="line-height:1.9;">
+        <div><strong>Customer:</strong> customer@demo.com / demo1234</div>
+        <div><strong>Provider:</strong> thandi.nkosi@salonhub.app / password123</div>
+        <div><strong>Admin:</strong> admin@salonhub.app / admin123</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

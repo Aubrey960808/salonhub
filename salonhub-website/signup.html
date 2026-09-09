@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>Sign up — SalonHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<section>
+  <div class="container-narrow">
+    <h1 class="center" style="font-size:2rem;">Create your account</h1>
+    <p class="center muted">Book appointments, or list your salon / house-call business.</p>
+
+    <div class="segmented" id="role-toggle">
+      <button type="button" data-role="customer" class="is-active">I want to book</button>
+      <button type="button" data-role="provider">I offer services</button>
+    </div>
+
+    <div class="form-card">
+      <div class="form-error" id="form-error"></div>
+      <form id="signup-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" required placeholder="e.g. Naledi Mahlangu" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" required placeholder="083 123 4567" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" type="email" required placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" required minlength="6" placeholder="At least 6 characters" />
+        </div>
+        <div class="field">
+          <label for="city">Location / city</label>
+          <input id="city" required list="city-list" placeholder="e.g. Johannesburg" />
+          <datalist id="city-list"></datalist>
+        </div>
+
+        <div id="provider-fields" style="display:none;">
+          <hr class="divider" />
+          <div class="field">
+            <label for="providerType">How do you offer your services?</label>
+            <select id="providerType">
+              <option value="housecall">House calls (I travel to the client)</option>
+              <option value="salon">Salon (clients visit me)</option>
+            </select>
+          </div>
+          <div class="field" id="category-field">
+            <label for="category">House-call category</label>
+            <select id="category">
+              <option>Makeup Artist</option>
+              <option>Barber</option>
+              <option>Nail Technician</option>
+              <option>Braider</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="bizname">Business / display name</label>
+            <input id="bizname" placeholder="e.g. Glow & Co Salon" />
+          </div>
+          <div class="field">
+            <label for="bio">Short bio</label>
+            <textarea id="bio" rows="3" placeholder="Tell clients what makes your work stand out"></textarea>
+          </div>
+
+          <div class="field" id="document-field" style="display:none;">
+            <label for="regDocument">Proof of business registration</label>
+            <input id="regDocument" type="file" accept=".pdf,.jpg,.jpeg,.png" />
+            <p class="small muted" style="margin-top:6px;">Upload your CIPC registration certificate or equivalent (PDF or image, up to 3MB). Salon accounts can't be verified without it.</p>
+          </div>
+
+          <p class="small muted">After signing up you'll add your services and available time slots from your dashboard. New provider accounts are reviewed by an admin before they appear as "Verified".</p>
+        </div>
+
+        <button class="btn btn-block" type="submit" style="margin-top:10px;">Create account</button>
+      </form>
+      <p class="center small muted" style="margin-top:18px;">Already have an account? <a href="login.html" style="color:var(--wine); font-weight:600;">Log in</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/signup.js"></script>
+</body>
+</html>

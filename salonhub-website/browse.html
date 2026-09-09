@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>Browse — SalonHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<section style="padding-bottom:0;">
+  <div class="container">
+    <h1 id="page-title" style="font-size:2rem;">Browse providers</h1>
+
+    <form class="filter-bar" id="filter-form">
+      <div class="field">
+        <label for="f-type">Booking type</label>
+        <select id="f-type">
+          <option value="">All types</option>
+          <option value="housecall">House calls</option>
+          <option value="salon">Salon visits</option>
+        </select>
+      </div>
+      <div class="field" id="f-category-wrap">
+        <label for="f-category">Category</label>
+        <select id="f-category">
+          <option value="">Any category</option>
+          <option>Makeup Artist</option>
+          <option>Barber</option>
+          <option>Nail Technician</option>
+          <option>Braider</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-city">Location</label>
+        <select id="f-city"><option value="">Any location</option></select>
+      </div>
+      <div class="field">
+        <label for="f-sort">Sort by</label>
+        <select id="f-sort">
+          <option value="name">Name</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+        </select>
+      </div>
+      <button class="btn" type="submit">Apply</button>
+    </form>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <p class="muted" id="result-count"></p>
+    <div id="results" class="listing"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/browse.js"></script>
+</body>
+</html>

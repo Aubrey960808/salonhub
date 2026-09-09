@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>Notifications — SalonHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<section>
+  <div class="container-narrow">
+    <div class="section-head">
+      <div>
+        <h1 style="font-size:1.8rem;">Notifications</h1>
+        <p class="muted small">Simulated email &amp; SMS confirmations sent to your account. No live email/SMS server is connected in this demo — see the README for how to wire one up.</p>
+      </div>
+      <button class="btn btn-outline btn-sm" id="mark-all-read">Mark all read</button>
+    </div>
+    <div id="notif-list"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notifications-page.js"></script>
+</body>
+</html>

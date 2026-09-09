@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>Provider dashboard — SalonHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h1 style="font-size:1.8rem;" id="dash-title">Provider dashboard</h1>
+        <p class="muted" id="verify-line"></p>
+      </div>
+      <a href="#" id="view-listing-link" class="btn btn-outline" target="_blank">View public listing</a>
+    </div>
+
+    <div id="welcome-banner" class="form-success" style="display:none;">Account created! Add your services and availability below so clients can start booking you.</div>
+
+    <div class="stat-grid" id="stat-grid"></div>
+
+    <div class="dash-shell">
+      <nav class="dash-side">
+        <a href="#" class="is-active">Manage business</a>
+        <a href="#" id="logout-side">Log out</a>
+      </nav>
+
+      <div>
+        <div class="tabs">
+          <button class="tab-btn is-active" data-tab="bookings">Bookings</button>
+          <button class="tab-btn" data-tab="services">Services</button>
+          <button class="tab-btn" data-tab="availability">Availability</button>
+          <button class="tab-btn" data-tab="profile">Profile</button>
+        </div>
+
+        <div class="tab-panel is-active" id="tab-bookings">
+          <div class="table-wrap" id="bookings-wrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-services">
+          <div class="table-wrap" id="services-wrap" style="margin-bottom:24px;"></div>
+          <h3>Add a service</h3>
+          <form id="service-form" class="field-row" style="align-items:flex-end; flex-wrap:wrap;">
+            <div class="field" style="min-width:200px;">
+              <label for="s-name">Service name</label>
+              <input id="s-name" required placeholder="e.g. Bridal Makeup" />
+            </div>
+            <div class="field" style="max-width:140px;">
+              <label for="s-price">Price (R)</label>
+              <input id="s-price" type="number" min="0" required placeholder="450" />
+            </div>
+            <div class="field" style="max-width:140px;">
+              <label for="s-duration">Duration (min)</label>
+              <input id="s-duration" type="number" min="5" required placeholder="45" />
+            </div>
+            <div class="field" style="max-width:160px;">
+              <button class="btn btn-block" type="submit">Add service</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab-panel" id="tab-availability">
+          <h3>Open time slots</h3>
+          <p class="muted small">These are the slots clients can book. Booked slots can't be removed here — cancel the booking first.</p>
+          <div class="availability-list" id="availability-wrap" style="margin-bottom:28px;"></div>
+          <h3>Add a time slot</h3>
+          <form id="slot-form" class="field-row" style="align-items:flex-end;">
+            <div class="field">
+              <label for="slot-date">Date</label>
+              <input id="slot-date" type="date" required />
+            </div>
+            <div class="field">
+              <label for="slot-time">Time</label>
+              <input id="slot-time" type="time" required />
+            </div>
+            <div class="field" style="max-width:160px;">
+              <button class="btn btn-block" type="submit">Add slot</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab-panel" id="tab-profile">
+          <div class="form-card" style="max-width:520px;">
+            <div class="form-success" id="profile-success" style="display:none;">Profile updated.</div>
+            <form id="profile-form">
+              <div class="field">
+                <label for="p-name">Business / display name</label>
+                <input id="p-name" required />
+              </div>
+              <div class="field">
+                <label for="p-city">City</label>
+                <input id="p-city" required />
+              </div>
+              <div class="field">
+                <label for="p-bio">Bio</label>
+                <textarea id="p-bio" rows="4"></textarea>
+              </div>
+              <button class="btn" type="submit">Save changes</button>
+            </form>
+          </div>
+
+          <div class="form-card" style="max-width:520px; margin-top:24px; display:none;" id="document-card">
+            <h3 class="mt-0">Business registration certificate</h3>
+            <p class="small muted" id="document-status"></p>
+            <div class="form-success" id="document-success" style="display:none;">Certificate updated — it will need to be reviewed again.</div>
+            <div class="form-error" id="document-error"></div>
+            <form id="document-form">
+              <div class="field">
+                <label for="document-file">Replace certificate</label>
+                <input id="document-file" type="file" accept=".pdf,.jpg,.jpeg,.png" />
+              </div>
+              <button class="btn btn-outline" type="submit">Upload</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard-provider.js"></script>
+</body>
+</html>

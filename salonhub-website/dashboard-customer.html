@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<title>My bookings — SalonHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<nav id="site-nav"></nav>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h1 style="font-size:1.8rem;">My bookings</h1>
+        <p class="muted" id="welcome-line"></p>
+      </div>
+      <a href="browse.html" class="btn btn-gold">Book something new</a>
+    </div>
+
+    <div class="dash-shell">
+      <nav class="dash-side">
+        <a href="#" class="is-active">Bookings</a>
+        <a href="#" id="logout-side">Log out</a>
+      </nav>
+
+      <div>
+        <div class="tabs">
+          <button class="tab-btn is-active" data-tab="upcoming">Upcoming</button>
+          <button class="tab-btn" data-tab="history">History</button>
+        </div>
+
+        <div class="tab-panel is-active" id="tab-upcoming">
+          <div class="table-wrap" id="upcoming-wrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-history">
+          <div class="table-wrap" id="history-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>&copy; <span id="year"></span> SalonHub — demo project</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard-customer.js"></script>
+</body>
+</html>
